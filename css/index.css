@@ -1,0 +1,165 @@
+/* ============================
+   RVX TOOLTIP BASE
+============================ */
+.rvx-tooltip {
+  position: fixed;
+  z-index: 9999;
+  max-width: 280px;
+  padding: 8px 12px;
+  font-size: 13px;
+  line-height: 1.4;
+  border-radius: 6px;
+
+  background: #111;
+  color: #fff;
+
+  border: 1px solid gray; /* gray border for DARK */
+
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity .15s ease, transform .15s ease;
+  pointer-events: none;
+  word-wrap: break-word;
+}
+
+.rvx-tooltip.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ============================
+   LIGHT THEME
+============================ */
+.rvx-tooltip.light {
+  background: #fff;
+  color: #111;
+  border-color: #d1d5db; /* gray border for LIGHT */
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+/* ============================
+   ARROW BASE (border + fill)
+============================ */
+.rvx-tooltip::before,
+.rvx-tooltip::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+/* ============================
+   TOP
+============================ */
+.rvx-tooltip[data-placement="top"]::before {
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 7px 7px 0 7px;
+  border-color: #4b5563 transparent transparent transparent;
+}
+
+.rvx-tooltip[data-placement="top"]::after {
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0 6px;
+  border-color: #111 transparent transparent transparent;
+}
+
+.rvx-tooltip.light[data-placement="top"]::before {
+  border-color: #d1d5db transparent transparent transparent;
+}
+
+.rvx-tooltip.light[data-placement="top"]::after {
+  border-color: #fff transparent transparent transparent;
+}
+
+/* ============================
+   BOTTOM
+============================ */
+.rvx-tooltip[data-placement="bottom"]::before {
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 7px 7px 7px;
+  border-color: transparent transparent #4b5563 transparent;
+}
+
+.rvx-tooltip[data-placement="bottom"]::after {
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0 6px 6px 6px;
+  border-color: transparent transparent #111 transparent;
+}
+
+.rvx-tooltip.light[data-placement="bottom"]::before {
+  border-color: transparent transparent #d1d5db transparent;
+}
+
+.rvx-tooltip.light[data-placement="bottom"]::after {
+  border-color: transparent transparent #fff transparent;
+}
+
+/* ============================
+   LEFT
+============================ */
+.rvx-tooltip[data-placement="left"]::before {
+  right: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 7px 0 7px 7px;
+  border-color: transparent transparent transparent #4b5563;
+}
+
+.rvx-tooltip[data-placement="left"]::after {
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 6px 0 6px 6px;
+  border-color: transparent transparent transparent #111;
+}
+
+.rvx-tooltip.light[data-placement="left"]::before {
+  border-color: transparent transparent transparent #d1d5db;
+}
+
+.rvx-tooltip.light[data-placement="left"]::after {
+  border-color: transparent transparent transparent #fff;
+}
+
+/* ============================
+   RIGHT
+============================ */
+.rvx-tooltip[data-placement="right"]::before {
+  left: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 7px 7px 7px 0;
+  border-color: transparent #4b5563 transparent transparent;
+}
+
+.rvx-tooltip[data-placement="right"]::after {
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 6px 6px 6px 0;
+  border-color: transparent #111 transparent transparent;
+}
+
+.rvx-tooltip.light[data-placement="right"]::before {
+  border-color: transparent #d1d5db transparent transparent;
+}
+
+.rvx-tooltip.light[data-placement="right"]::after {
+  border-color: transparent #fff transparent transparent;
+}
+
+/* ============================
+   OPTIONAL POLISH
+============================ */
+.rvx-tooltip:not(.light) {
+  box-shadow: 0 8px 20px rgba(0,0,0,.45);
+  }
